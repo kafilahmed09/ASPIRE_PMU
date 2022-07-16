@@ -1,0 +1,40 @@
+﻿
+
+@model IEnumerable<ASPIRE.Models.Domain.Schools.IndicatorEvidence>
+
+
+<div class="row text-center">
+    <div class="col-lg-1"></div>
+    <div class="col-lg-10">
+        <div class="card">
+            <div class="card-body">
+
+                <h4 class="card-title">School Features Enhancement Images</h4>
+                @*<p class="card-title-desc">Adding in the previous and next controls:</p>*@
+
+                <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+                    <div class="carousel-inner" role="listbox">
+                        @{int counter = 0;}
+                        @foreach (var item in Model)
+                        {
+
+                            <div class="carousel-item @(counter == 0 ? "active" : "") ">
+                                <img class="d-block img-fluid" src="@item.ImageURL" alt="First slide" style="height:350px;width:100%" height="300">
+                            </div>
+                            counter++;
+                        }
+                    </div>
+                    <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div> <!-- end col -->
+    <div class="col-lg-1"></div>
+</div>

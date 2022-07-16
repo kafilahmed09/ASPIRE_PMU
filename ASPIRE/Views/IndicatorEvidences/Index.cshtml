@@ -1,0 +1,72 @@
+﻿@model IEnumerable<ASPIRE.Models.Domain.Schools.IndicatorEvidence>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/_Shared/_Layout.cshtml";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ImageURL)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DateOfUpload)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IsVerified)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.VerifiedBy)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.VerifiedDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.School)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Indicator)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ImageURL)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateOfUpload)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsVerified)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.VerifiedBy)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.VerifiedDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.School.SchoolId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Indicator.IndicatorId)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.IndicatorEvidenceId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.IndicatorEvidenceId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.IndicatorEvidenceId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

@@ -1,0 +1,45 @@
+﻿@model ASPIRE.Models.Domain.MasterSetup.School
+
+<style>
+    .control-label{
+        margin: .5rem;
+    }
+</style>
+
+
+    <div class="card">   
+        <div class="card-body">           
+                <div class="row">                                      
+                    <div class="col-md-6">
+                        <label asp-for="SchoolName" class="control-label"></label>
+                        <input asp-for="SchoolName" class="form-control" disabled="disabled" />
+                        <span asp-validation-for="SchoolName" class="text-danger"></span>
+                    </div>
+                    <div class="col-md-3">
+                        <label asp-for="BEMISCode" class="control-label"></label>
+                        <input asp-for="BEMISCode" class="form-control" disabled="disabled" />
+                        <span asp-validation-for="BEMISCode" class="text-danger"></span>
+                    </div>                  
+                    <div class="col-md-3">
+                        <label asp-for="SchoolLevel" class="control-label"></label>
+                        <input asp-for="SchoolLevel" class="form-control" disabled="disabled" />
+                        <span asp-validation-for="SchoolLevel" class="text-danger"></span>
+                    </div>                 
+                    <div class="col-md-3">
+                        <label asp-for="District" class="control-label"></label>
+                        <input asp-for="District" class="form-control" disabled="disabled" />
+                        <span asp-validation-for="District" class="text-danger"></span>
+                    </div>
+                    <div class="col-md-3">
+                        <label asp-for="Tehsil" class="control-label"></label>
+                        <input asp-for="Tehsil" class="form-control" disabled="disabled" />
+                        <span asp-validation-for="Tehsil" class="text-danger"></span>
+                    </div>
+                    <div class="col-md-3">
+                        <label asp-for="UC" class="control-label"></label>
+                        <input asp-for="UC" class="form-control" disabled="disabled" />
+                        <span asp-validation-for="UC" class="text-danger"></span>
+                    </div>
+                </div>            
+        </div><!-- /.card-body -->
+    </div>

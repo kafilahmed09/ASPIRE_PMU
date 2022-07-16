@@ -1,0 +1,87 @@
+﻿
+@{
+    ViewData["Title"] = "SchoolProfile";
+    Layout = "~/Views/_Shared/_Layout.cshtml";
+}
+
+@section Styles {
+    <!-- DataTables -->
+    <style>
+        input {
+            color: black;
+        }
+
+        .mapouter {
+            position: relative;
+            text-align: right;
+            height: 500px;
+            width: 100%;
+        }
+
+        .gmap_canvas {
+            overflow: hidden;
+            background: none !important;
+            height: 500px;
+            width: 100%;
+        }
+
+        #link {
+            color: #FFFFFF;
+        }
+
+        .main-footer.main-footer {
+            margin: 0;
+        }
+        .page-title-box {
+            padding: 0;
+        }
+        /* CSS link color */
+    </style>    
+}
+
+<div class="alert alert-success" role="alert">
+    <h4 class="text-center"><u>School Profile: @ViewBag.SchoolName</u></h4>
+</div>
+<div id="SchoolInfo"></div>
+<div class="text-center" id="SchoolImages"></div>
+<div id="SchoolGRN"></div>
+<div id="SchoolVideos"></div>
+
+
+
+<div id="attachmentModal" class="modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-body pb-0">
+                <embed id="pdfFileAttachment" src="" frameborder="0" width="100%" height="550px">
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="mapouter"><div class="gmap_canvas"><iframe width="100%" height="100%" frameborder="0" style="border:0" src="@String.Concat("https://www.google.com/maps/embed/v1/place?q=",32.4545,",",67.567,"&key=AIzaSyAq8CjILSiYD9C8h6B8lnZG4drnJVx0kpY&zoom=10")"></iframe></div></div>
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+    <!-- Sweet Alerts js -->
+    <script src="~/assets/libs/sweetalert2/sweetalert2.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $.get('@Url.Action("SchoolBasicInfo","Schools", new { id= ViewBag.Id })', function (content) {
+                $("#SchoolInfo").html(content);
+            });
+             $.get('@Url.Action("SchoolGRNs","Schools", new { id= ViewBag.Id })', function (content) {
+                    $("#SchoolGRN").html(content);
+             });
+            $.get('@Url.Action("SchoolImages","Schools", new { id= ViewBag.Id })', function (content) {
+                $("#SchoolImages").html(content);
+            });
+            $.get('@Url.Action("SchoolVideos","Schools", new { id= ViewBag.Id })', function (content) {
+                $("#SchoolVideos").html(content);
+             });
+        });
+    </script>
+}
+
+

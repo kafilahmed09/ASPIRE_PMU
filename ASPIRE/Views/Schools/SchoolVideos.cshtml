@@ -1,0 +1,19 @@
+﻿
+
+@model IEnumerable<ASPIRE.Models.Domain.Schools.IndicatorEvidence>
+
+
+<div class="row text-center">    
+    @foreach (var item in Model)
+    {
+        <div class="col-lg-6">
+            <div class="card">
+                <div class="card-body">
+                    <iframe width="100%" height="315"
+                            src="@item.ImageURL">
+                    </iframe>
+                </div>
+            </div>
+        </div> <!-- end col -->
+    }
+</div>

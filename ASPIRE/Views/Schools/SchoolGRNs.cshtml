@@ -1,0 +1,36 @@
+﻿
+@model IEnumerable<ASPIRE.Models.Domain.Schools.IndicatorEvidence>
+
+<style>
+    .control-label {
+        margin: .5rem;
+    }
+</style>
+
+
+<div class="card">
+    <div class="card-body">
+        <h4 class="card-title">List of uploaded GRN's <i class="bx bx-cloud-upload"></i></h4>
+        <div class="row">
+            @foreach (var item in Model)
+            {
+                <div class="col-md-3">
+                    <label class="control-label">@item.Indicator.IndicatorName</label>
+                    <a class="shower" style="cursor:pointer" data-toggle="modal" data-src="@item.ImageURL" data-target="#attachmentModal">
+                        <i class="mdi mdi-file-pdf align-middle pl-1" style="font-size:21px"></i>
+                    </a>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+<!-- JAVASCRIPT -->
+<script src="~/assets/libs/jquery/jquery.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $(".shower").click(function () {
+            $('#pdfFileAttachment').attr("src", $(this).attr("data-src"));
+        });
+    });
+</script>
